@@ -37,19 +37,17 @@ function App() {
   }
 
   const rename = () => {
-    if (window.location.pathname === '/rename') {
-      const data = {
-        "files": files,
-        "filenamePrefix": filenamePrefix
-      }
-      axios.post('http://localhost:3000/rename', data)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    const data = {
+      "files": files,
+      "filenamePrefix": filenamePrefix
     }
+    axios.post('http://localhost:3000/rename', data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   const handleDownloadInvoice = () => {
@@ -80,43 +78,29 @@ function App() {
       console.error(error);
     });
   }
-  
-  
-  const isRenamePage = window.location.pathname === '/rename';
-  const isInvoicePage = window.location.pathname === '/invoice';
-  const isExpensePage = window.location.pathname === '/expense';
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>Welcome to Accounting Toolz!</p>
+        <p>Welcome to Accounting Tools 123!</p>
       </header>
       
-      <body >
+      <body>
         <div className="icons">
-      <div >
-        <p>Click here to rename your files</p>
-        <img onClick={() => { window.location.href = '/rename' }} src="/rename.png" alt="rename" />
-      </div>
-  
-      <div >
-        <p>Click here to generate invoices</p>
-        <img onClick={() => { window.location.href = '/invoice' }} src="/invoice.png" alt="invoice" />
-      </div>
-      <div >
-        <p>Click here to create an expense report</p>
-        <img onClick={() => { window.location.href = '/expense' }} src="/expense.png" alt="expense" />
-      </div>
-        </div>
-        {isRenamePage && (
-          <>
+          <div>
+            <p>Click here to rename your files</p>
+            <div><img src="/rename.png" /></div>
+            
             <input type="file" id="files" multiple onChange={handleFileChange} required />
             <input type="text" id="filenamePrefix" placeholder="Enter filename prefix" value={filenamePrefix} onChange={handlePrefixChange} />
             <button onClick={handleDownload}>Compress & Download ZIP File</button>
-          </>
-        )}
-        {isInvoicePage && (
-          <>
+            <button onClick={rename}>Rename Files</button>
+          </div>
+  
+          <div>
+            <p>Click here to generate invoices</p>
+            <div><img src="/invoice.png" /></div>
+            
             <input type="file" id="files" onChange={handleFileChange} required />
             <p>only JPEG, PNG, or TIFF acceptable</p>
             <button onClick={generateInvoice}>Generate Invoice</button>
@@ -125,12 +109,12 @@ function App() {
               <textarea value={invoiceText} readOnly />
               <button onClick={handleDownloadInvoice}>Download Invoice</button>
             </div>
-          </>
-        )}
-        {isExpensePage && (
-          <>
+          </div>
+          
+          <div>
+            <p>Click here to create an expense report</p>
+            <div><img src="/expense.png" /></div>
             
-            <>
             <input type="file" id="files" onChange={handleFileChange} required />
             <p>only JPEG, PNG, or TIFF acceptable</p>
             <button onClick={generateInvoice}>Generate Expense Report</button>
@@ -139,9 +123,8 @@ function App() {
               <textarea value={invoiceText} readOnly />
               <button onClick={handleDownloadInvoice}>Download Expense Report</button>
             </div>
-          </>
-          </>
-        )}
+          </div>
+        </div>
       </body>
     </div>
   );
