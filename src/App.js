@@ -89,7 +89,7 @@ function App() {
         <div className="icons">
           <div>
             <p>Click here to rename your files</p>
-            <div><img src="/rename.png" /></div>
+            <div><img src={process.env.PUBLIC_URL + '/rename.png'} /></div>
             
             <input type="file" id="files" multiple onChange={handleFileChange} required />
             <input type="text" id="filenamePrefix" placeholder="Enter filename prefix" value={filenamePrefix} onChange={handlePrefixChange} />
@@ -99,7 +99,7 @@ function App() {
   
           <div>
             <p>Click here to generate invoices</p>
-            <div><img src="/invoice.png" /></div>
+            <div><img src={process.env.PUBLIC_URL + '/invoice.png'} /></div>
             
             <input type="file" id="files" onChange={handleFileChange} required />
             <p>only JPEG, PNG, or TIFF acceptable</p>
@@ -113,7 +113,7 @@ function App() {
           
           <div>
             <p>Click here to create an expense report</p>
-            <div><img src="/expense.png" /></div>
+            <div><img src={process.env.PUBLIC_URL + '/expense.png'} /></div>
             
             <input type="file" id="files" onChange={handleFileChange} required />
             <p>only JPEG, PNG, or TIFF acceptable</p>
