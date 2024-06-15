@@ -13,14 +13,14 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #333;
   color: white;
   padding: 20px 0;
   margin-bottom: 20px;
 }
 
 h2 {
-  color: #282c34;
+  color: #333;
 }
 
 table {
@@ -36,7 +36,7 @@ th, td {
 }
 
 th {
-  background-color: #007bff;
+  background-color: #333;
   color: white;
 }
 
@@ -64,7 +64,7 @@ input[type="file"] {
 
 button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 5px;
@@ -74,7 +74,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #45a049;
 }
 
 /* Responsive design */
@@ -85,5 +85,102 @@ button:hover {
 
   td input[type="text"] {
     width: 100%;
+  }
+}
+
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #333;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(113, 187, 159);
+}
+
+main {
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #b4b4b4;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  cursor: pointer;
+  background-color: #afafaf;
+}
+
+th input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #b6b5b5;
+}
+
+tbody tr:hover {
+  background-color: #a5a4a4;
+}
+
+input[type="file"] {
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+  table, th, td {
+    display: block;
+  }
+
+  th, td {
+    width: 100%;
+  }
+
+  th {
+    background-color: #707070;
   }
 }
